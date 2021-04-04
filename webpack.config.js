@@ -26,7 +26,15 @@ module.exports = {
                 }
             }, {
                 test: /\.s?css$/i,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+                use: [MiniCssExtractPlugin.loader, {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            compileType: 'module',
+                        },
+                        importLoaders: 1,
+                    }
+                }, "sass-loader"]
                 /*
                 * right - left
                 * css-loader -> collect all the css files referenced in your application and put it into a string

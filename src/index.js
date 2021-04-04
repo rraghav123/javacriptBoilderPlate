@@ -1,10 +1,12 @@
-import { getElementById, newNode } from './utils';
+import { appendNode } from './utils';
+import Dashboard from './views/dashboard';
+import './styles/index.scss'
 
 function root() {
-    const ele = newNode('p');
-    document.body.appendChild(ele);
-    ele.id = 'hello';
-    console.log(getElementById('hello'))
+    const UI = Dashboard();
+    appendNode(UI);
 }
 
-root();
+document.addEventListener('DOMContentLoaded', () => {
+    root();
+})
